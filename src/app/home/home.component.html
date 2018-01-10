@@ -1,3 +1,18 @@
-<p>
-  home works!
-</p>
+
+<div ng-controller="IncCtrl" class="container">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <button type="button" class="btn btn-primary" (click)="addCookies()">Click me for a free cookie</button>
+      <button type="button" class="btn btn-warning" (click)="addClickers()">Buy a clicker ( {{clickerPrice}} cookies )</button>
+      <!--<button type="button" class="btn btn-success">Buy a factory ( {{factoryPrice()}} cookies )</button>
+      <button class="btn-primary" ng-click="click()">click me for a free cookie</button>
+      <button class="btn-warning" ng-click="buyClicker()">Buy a clicker ( {{clickerPrice()}} cookies )</button>
+      <button class="btn-warning" ng-click="buyClickerFactory()">Buy a factory ( {{factoryPrice()}} cookies )</button>-->
+    </div>
+  </div>
+  <hr>
+  <h1>Cookies: {{cookies}}</h1>
+
+  <h3> Clickers : <span> {{clickers}}</span></h3>
+  <!--<h3>Factories : <span> {{factories}}</span></h3>-->
+</div>
