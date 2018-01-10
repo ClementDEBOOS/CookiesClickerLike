@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 
 
 @Component({
@@ -11,6 +11,8 @@ export class HomeComponent implements OnInit {
   cookies = 0;
   clickerPrice = 10;
   clickers = 0;
+  powerPrice = 50;
+  power = 0;
 
   constructor() { }
 
@@ -19,7 +21,7 @@ export class HomeComponent implements OnInit {
   }
 
   addCookies() {
-    this.cookies += 1;
+    this.cookies += (1 + this.power);
     return this.cookies;
   }
 
@@ -28,6 +30,14 @@ export class HomeComponent implements OnInit {
       this.cookies -= this.clickerPrice;
       this.clickerPrice = Math.ceil(this.clickerPrice *= 1.07);
       this.clickers += 1;
+    }
+  }
+
+  addPower() {
+    if (this.powerPrice <= this.cookies) {
+      this.cookies -= this.powerPrice;
+      this.powerPrice = this.powerPrice * 2;
+      this.power += 1;
     }
   }
 

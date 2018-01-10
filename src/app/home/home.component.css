@@ -2,3 +2,15 @@
   margin-left: auto;
   margin-right: auto;
 }
+.btn-image {
+  width: 100px;
+  height: 100px;
+}
+
+.btn-add {
+  background: green;
+}
+
+.button:active {
+  transform: scale(1.1);
+}

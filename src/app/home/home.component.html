@@ -2,17 +2,44 @@
 <div ng-controller="IncCtrl" class="container">
   <div class="row">
     <div class="col-md-12 text-center">
-      <button type="button" class="btn btn-primary" (click)="addCookies()">Click me for a free cookie</button>
-      <button type="button" class="btn btn-warning" (click)="addClickers()">Buy a clicker ( {{clickerPrice}} cookies )</button>
-      <!--<button type="button" class="btn btn-success">Buy a factory ( {{factoryPrice()}} cookies )</button>
-      <button class="btn-primary" ng-click="click()">click me for a free cookie</button>
-      <button class="btn-warning" ng-click="buyClicker()">Buy a clicker ( {{clickerPrice()}} cookies )</button>
-      <button class="btn-warning" ng-click="buyClickerFactory()">Buy a factory ( {{factoryPrice()}} cookies )</button>-->
+      <div class="row">
+        <div class="col-sm">
+          <figure>
+            <input type="image" class="btn-image button" src="../../assets/Images/cookie.png" (click)="addCookies()">
+            <figcaption><div class="alert alert-primary" role="alert">Click me for a free cookie</div></figcaption>
+          </figure>
+        </div>
+        <div class="col-sm">
+          <figure>
+            <input [class.btn-add]="cookies > clickerPrice" type="image" class="btn-image button" #myBtn src="../../assets/Images/Stoneaxe_icon32.png" (click)="addClickers()"><br>
+            <figcaption><div class="alert alert-primary" role="alert">Buy a clicker <strong>{{clickerPrice}}</strong></div></figcaption>
+          </figure>
+        </div>
+        <div class="col-sm">
+          <figure>
+            <input [class.btn-add]="cookies > powerPrice" type="image" class="btn-image button" src="../../assets/Images/pay-per-click.png" (click)="addPower()"><br>
+            <figcaption><div class="alert alert-primary" role="alert">Buy more power <strong>{{powerPrice}}</strong></div></figcaption>
+          </figure>
+        </div>
+      </div>
     </div>
   </div>
   <hr>
-  <h1>Cookies: {{cookies}}</h1>
+  <div class="text-center">
+    <div class="row">
+      <div class="col-sm">
+        <h1>Cookies <br>{{cookies}}</h1>
+        <h3>Par seconde : {{clickers}}</h3>
+        <h3>Power par click : +{{power+1}}</h3>
+      </div>
+      <div class="col-sm">
+        <h3>Clickers<br><span> {{clickers}}</span></h3>
+      </div>
+      <div class="col-sm">
+        <h3>My power<br><span> {{power}}</span></h3>
+      </div>
+    </div>
+  </div>
 
-  <h3> Clickers : <span> {{clickers}}</span></h3>
   <!--<h3>Factories : <span> {{factories}}</span></h3>-->
 </div>
