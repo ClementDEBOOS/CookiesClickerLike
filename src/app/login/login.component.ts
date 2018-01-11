@@ -28,10 +28,9 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/home']);
     }else {
       this.error = {
-        title: 'Mauvais identifiant',
+        title: 'Identifiant ou mot de passe incorrecte',
         text: 'Recommencer'
       };
     }
   }
-
 }

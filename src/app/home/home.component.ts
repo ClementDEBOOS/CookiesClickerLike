@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit {
   addPower() {
     if (this.powerPrice <= this.cookies) {
       this.cookies -= this.powerPrice;
-      this.powerPrice = this.powerPrice * 2;
+      this.powerPrice = Math.ceil(this.powerPrice *= 1.07);
       this.power += 1;
     }
   }
