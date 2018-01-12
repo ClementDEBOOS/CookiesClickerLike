@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Login } from '../login';
+import {Credentials, User} from '../user';
 import {Router} from '@angular/router';
+import { CoockiesService } from '../services/coockies.service';
 
 @Component({
   selector: 'app-login',
@@ -9,22 +10,40 @@ import {Router} from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  login: Login = {
+
+  credentials: Credentials = {
     mail: '',
     pwd: ''
-  };
+  }
 
   error: any = null;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private coockiesService: CoockiesService) { }
 
   ngOnInit() {
 
   }
   sendLogin() {
-    console.log(this.login.mail, this.login.pwd);
+    console.log(this.credentials.mail, this.credentials.pwd);
+
+    this.coockiesService.getUsers().subscribe((credentials) => {
+     if (credentials.filter( cred => (cred.mail === this.credentials.mail) && (cred.pwd === this.credentials.pwd)).length > 0) {
+       // User valid
+       this.router.navigate(['/home']);
+       console.log('Valid user');
+     } else {
+       this.error = {
+         title: 'Identifiant ou mot de passe incorrecte',
+         text: 'Recommencer'
+       };
+       console.log('Not valid user');
+     }
+    });
+
+
+    /*
     // Fonction onchange regex
-    if (this.login.mail === 'clement' && this.login.pwd === 'azerty') {
+    if (this.user.mail === 'clement' && this.user.pwd === 'azerty') {
       this.router.navigate(['/home']);
     }else {
       this.error = {
@@ -32,5 +51,6 @@ export class LoginComponent implements OnInit {
         text: 'Recommencer'
       };
     }
+    */
   }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Login} from '../login';
-import {Register} from '../register';
+import {Credentials, User} from '../user';
+import {CoockiesService} from '../services/coockies.service';
 
 @Component({
   selector: 'app-register',
@@ -8,20 +8,25 @@ import {Register} from '../register';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-
-  register: Register = {
+  credentials: Credentials = {
     mail: '',
-    pwd: '',
+    pwd: ''
+  };
+  user: User = {
+    credentials: this.credentials,
     phone: '',
-    name: ''
-  }
-
+    name: '',
+    id: '',
+    token: ''
+  };
   constructor() { }
 
   ngOnInit() {
   }
 
-  sendRegister() {
-    console.log(this.register.mail, this.register.pwd);
+  sendRegister(ngForm) {
+    ngForm = ngForm.trim();
+
+    console.log('FORM', ngForm);
   }
 }

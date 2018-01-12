@@ -6,8 +6,8 @@
     <div class="alert alert-danger" *ngIf="!!error" align="center"><strong>{{ error.title }}<br></strong>{{ error.text }}</div>
     <form class="form-signin">
       <span id="reauth-email" class="reauth-email"></span>
-      <input type="email" id="inputEmail" class="form-control" placeholder="Adresse mail" [(ngModel)]="login.mail" name="mail" required autofocus>
-      <input type="password" id="inputPassword" class="form-control" placeholder="Mot de passe" [(ngModel)]="login.pwd" name="pwd" required>
+      <input type="email" id="inputEmail" class="form-control" placeholder="Adresse mail" [(ngModel)]="credentials.mail" name="mail" required autofocus>
+      <input type="password" id="inputPassword" class="form-control" placeholder="Mot de passe" [(ngModel)]="credentials.pwd" name="pwd" required>
       <div id="remember" class="checkbox">
         <label>
           <input type="checkbox" value="remember-me"> Se souvenir de moi

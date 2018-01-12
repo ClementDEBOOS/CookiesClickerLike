@@ -1,0 +1,14 @@
+[
+  {
+    "mail": "clement.deboos@gmail.com",
+    "pwd": "azerty"
+  },
+  {
+    "mail": "toto",
+    "pwd": "toto"
+ },
+  {
+    "mail": "root",
+    "pwd": "root"
+  }
+]

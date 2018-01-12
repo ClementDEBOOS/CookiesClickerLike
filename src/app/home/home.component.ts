@@ -1,4 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
+import {Bonus, Game} from '../game';
+import {Credentials, User} from '../user';
 
 
 @Component({
@@ -14,10 +16,37 @@ export class HomeComponent implements OnInit {
   powerPrice = 50;
   power = 0;
 
+  bonus: Bonus = {
+    id: '',
+    nbLvl: ''
+  };
+  game: Game = {
+    id: '',
+    score: '',
+    point: '',
+    bonus: this.bonus
+  };
+
+  credentials: Credentials = {
+    pwd: '',
+    mail: ''
+  };
+
+  user: User = {
+    credentials: this.credentials,
+    id: '',
+    name: '',
+    phone: '',
+    token: '',
+  };
+
+
   constructor() { }
 
   ngOnInit() {
     window.setInterval(this.autoincrement.bind(this), 1000);
+    this.game.id  = Math.random().toString(36).substr(2, 9);
+    console.log('IdGame : ', this.game.id);
   }
 
   addCookies() {
